@@ -14,6 +14,6 @@
 
 + [《node.js高级编程》--读书笔记(1)](https://github.com/z-god/reading-notes/blob/master/node.js高级编程/note1.md)
 
-+ [《node.js高级编程》--读书笔记(1)](https://github.com/z-god/reading-notes/blob/master/node.js高级编程/note2.md)
++ [《node.js高级编程》--读书笔记(2)](https://github.com/z-god/reading-notes/blob/master/node.js高级编程/note2.md)
 
-+ [《node.js高级编程》--读书笔记(1)](https://github.com/z-god/reading-notes/blob/master/node.js高级编程/note3.md)
++ [《node.js高级编程》--读书笔记(3)](https://github.com/z-god/reading-notes/blob/master/node.js高级编程/note3.md)
