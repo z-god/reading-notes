@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta charset="utf-8"><title>提升 - Documents</title><meta name="description" content=""><meta name="author" content=""><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"><link rel="stylesheet" href="assets/css/bulma.min.css"><link rel="stylesheet" href="assets/css/app.css"><!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]--><link rel="shortcut icon" href=""></head><body dir="ltr"><nav class="columns navbar"><div class="column logo is-3 is-offset-1"><a class="is-brand" href="index.html">Documents</a></div></nav><div class="columns content"><div class="column is-2-desktop is-3-widescreen is-hidden-touch"></div><div class="column article-container is-11-tablet is-8-desktop is-6-widescreen"><div class="breadcrumb-area"><a href="index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-delimiter"> &gt; </span><a href="你不知道的javascript--读书笔记(4).html" class="breadcrumb-item">提升</a></div><h1 class="article-title">提升</h1><div class="article"><blockquote><p>JavaScript代码在执行时是由上到下一行一行执行的，这种说话不完全正确。</p></blockquote><ul><li><strong>包括变量和函数在内的所有声明都会在任何代码被执行之前首先被处理</strong></li></ul><p>如下例：</p><pre class="hljs"><code>a = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> a;
+<span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//2</span>
+
+所以这里首先被执行的是<span class="hljs-string">'var a;'</span>
+</code></pre><pre class="hljs"><code><span class="hljs-built_in">console</span>.log(a)<span class="hljs-comment">//undefinded</span>
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;可以看做是<span class="hljs-keyword">var</span> a,
+a = <span class="hljs-number">2</span>,两个声明
+</code></pre><p>上述例子的现象的过程就好像变量和函数声明从它们代码中出现位置“移动”到最上面，此过程叫做提升。<br><strong>只有声明本身会被提升，赋值或者其他运行逻辑会留在原地。</strong></p><pre class="hljs"><code>foo()
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//undefined</span>
+    <span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;
+}
+</code></pre><pre class="hljs"><code>foo()<span class="hljs-comment">//TypeError</span>
+
+<span class="hljs-keyword">var</span> foo = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">//...</span>
+}
+
+变量标识符foo()被声明提升分配给所在的作用域，但当执行foo()时,并未赋值，所以抛出异常。
+</code></pre><p>结论：<strong>函数声明会被提升，函数表达式不会被提升</strong></p><p>函数会首先被提升，然后才是变量。</p><pre class="hljs"><code>foo(); <span class="hljs-comment">// 1</span>
+
+<span class="hljs-keyword">var</span> foo;<span class="hljs-comment">//重复的声明，被忽略。</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-number">1</span> );
+}
+foo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-number">2</span> );
+};
+</code></pre><h2 id="小结">小结 <a class="markdownIt-Anchor" href="#小结">#</a></h2><ul><li><p>var a = 2,JavaScript引擎将其当做var a ,a = 2，两个单独的声明。</p></li><li><p>无论作用域中的声明出现在什么地方，都将在代码本身被执行前首先进行处理。</p></li></ul></div><div dir="ltr" class="level article-bar is-mobile"><div class="level-item has-text-centered"><a title="previous page" class="previouse-article-link" href="你不知道的javascript--读书笔记(3).html"><span class="icon icon-previous" data-icon="previous"></span><span class="link-content">&laquo; Previous</span></a></div><div class="level-item has-text-centered"><a title="font size" class="link-item link-item-size"><span class="icon icon-size" data-icon="size"></span></a></div><div class="level-item has-text-centered"><a title="table of content" class="link-item link-item-toc"><span class="icon icon-toc" data-icon="toc"></span></a></div><div class="level-item has-text-centered"><a title="top" href="#"><span class="icon icon-up" data-icon="up"></span> <span class="link-content">⤊ Top</span></a></div><div class="level-item has-text-centered"><a title="next page" class="next-article-link link-disabled"><span class="icon icon-next-disabled" data-icon="next-disabled"></span></a></div></div></div><div class="column is-2-widescreen is-hidden"></div></div><div class="columns foot"><div class="column is-3 is-offset-9 build-by">Build by <a href="https://github.com/ruanyf/loppo" target="_blank">Loppo</a> 0.6.14</div></div><div class="book-toc notification is-warning is-hidden"><h3>Table of chapters &nbsp;<span class="title-close"><a class="button is-danger"> Close</a></span></h3><ul class="chapter-area"><li class="chapter-item"><a href="note1.html">2 Node简介</a></li><li class="chapter-item"><a href="note2.html">Node核心API基础</a></li><li class="chapter-item"><a href="note3.html">4 应用缓冲区处理、编码和解码二进制数据</a></li><li class="chapter-item"><a href="note4.html">使用事件发射器简化事件绑定</a></li><li class="chapter-item"><a href="你不知道的JavaScript--读书笔记(1).html">《你不知道的javascript》（上）</a></li><li class="chapter-item"><a href="你不知道的JavaScript--读书笔记(2).html">词法作用域</a></li><li class="chapter-item"><a href="你不知道的JavaScript--读书笔记(5).html">作用域闭包</a></li><li class="chapter-item"><a href="你不知道的JavaScript--读书笔记(6).html">你不知道的JavaScript</a></li><li class="chapter-item"><a href="你不知道的JavaScript--读书笔记(7).html">this</a></li><li class="chapter-item"><a href="你不知道的javascript--读书笔记(3).html">函数作用域和块作用域</a></li><li class="chapter-item chapter-item-current"><a href="你不知道的javascript--读书笔记(4).html">提升</a></li></ul></div><div class="progress-indicator"></div><!-- SCRIPTS --><script>var LOPPO={current_path:"你不知道的javascript--读书笔记(4).md",relative_root_path:"",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>\n</ul>\n'}</script><script src="assets/js/app.js"></script></body></html>
